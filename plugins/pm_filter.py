@@ -873,16 +873,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
             elif settings['botpm'] and settings['is_shortlink'] and clicked not in PREMIUM_USER:
-                    temp.SHORT[clicked] = query.message.chat.id
-                    await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=short_{file_id}")
-                    return
+                temp.SHORT[clicked] = query.message.chat.id
+                await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=short_{file_id}")
+                return
             elif settings['is_shortlink'] and not settings['botpm'] and clicked not in PREMIUM_USER:
-                    temp.SHORT[clicked] = query.message.chat.id
-                    await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=short_{file_id}")
-                    return
+                temp.SHORT[clicked] = query.message.chat.id
+                await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=short_{file_id}")
+                return
             elif settings['botpm'] or clicked in PREMIUM_USER:
-                    await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={ident}_{file_id}")
-                    return
+                await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={ident}_{file_id}")
+                return
                     await client.send_cached_media(
                         chat_id=query.from_user.id,
                         file_id=file_id,
