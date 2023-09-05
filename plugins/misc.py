@@ -144,7 +144,7 @@ async def imdb_search(client, message):
 
         for movie in movies:
             link = download_link[0] if download_link else None
-            short_link = await get_shortlink() if link else None
+            short_link = await get_shortlink(link,chat_id) if link else None
             
         
         btn = [
