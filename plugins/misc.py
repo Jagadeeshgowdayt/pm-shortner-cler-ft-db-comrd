@@ -143,8 +143,8 @@ async def imdb_search(client, message):
             return await message.reply("No results Found")
 
         for movie in movies:
-            link = download_link[0] if download_link else None
-            short_link = await get_shortlink if link else None
+            short_link = await get_shortlink(download_link[0] or None)
+
             
         
         btn = [
