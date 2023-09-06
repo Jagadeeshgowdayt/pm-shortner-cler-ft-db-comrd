@@ -250,7 +250,7 @@ async def imdb_post_callback(bot: Client, query: CallbackQuery):
     try:
         new_markup = query.message.reply_markup
         new_markup.inline_keyboard.pop()  # Remove the last row containing the "Post to Channel" button
-        download_button = InlineKeyboardButton(text='How to Download', url="https://t.me/filmztube_openlink/27")
+        download_button = InlineKeyboardButton(text='How to Download', url="https://telegram.me/filmznk/27")
         new_markup.inline_keyboard.append([download_button])
         sti_id = "CAACAgUAAxkBAAEJtERks0gX078KMdOlHbR72bMDnD2FdQACDgADQ3PJEgsK7SMGumuoLwQ"
         
