@@ -23,10 +23,10 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('⚜️ Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info"),
-                    InlineKeyboardButton('🔱 Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url="https://t.me/requestgroupmoviesps")
+                    InlineKeyboardButton('🔱 Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url="https://telegram.me/requestgroupmoviesps")
                 ],[
                     InlineKeyboardButton('🔰 Hᴇʟᴘ', callback_data='help'),
                     InlineKeyboardButton('⚠️ Aʙᴏᴜᴛ', callback_data='about'),
@@ -47,10 +47,10 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons =[[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('⚜️ Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info"),
-                    InlineKeyboardButton('🔱 Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url="https://t.me/requestgroupmoviesps")
+                    InlineKeyboardButton('🔱 Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url="https://telegram.me/requestgroupmoviesps")
                 ],[
                     InlineKeyboardButton('🔰 Hᴇʟᴘ', callback_data='help'),
                     InlineKeyboardButton('⚠️ Aʙᴏᴜᴛ', callback_data='about'),
@@ -86,7 +86,7 @@ async def start(client, message):
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
                 btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"{pre}#{file_id}")])
             except (IndexError, ValueError):
-                btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+                btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://telegram.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
             text="**You are not in our channel given below so you don't get the movie file...\n\nIf you want the movie file, click on the '🍿ᴊᴏɪɴ ᴏᴜʀ ʙᴀᴄᴋ-ᴜᴘ ᴄʜᴀɴɴᴇʟ🍿' button below and join our back-up channel, then click on the '🔄 Try Again' button below...\n\nThen you will get the movie files...**",
@@ -96,10 +96,10 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('⚜️ Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info"),
-                    InlineKeyboardButton('🔱 Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url="https://t.me/requestgroupmoviesps")
+                    InlineKeyboardButton('🔱 Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url="https://telegram.me/requestgroupmoviesps")
                 ],[
                     InlineKeyboardButton('🔰 Hᴇʟᴘ', callback_data='help'),
                     InlineKeyboardButton('⚠️ Aʙᴏᴜᴛ', callback_data='about'),
@@ -157,9 +157,9 @@ async def start(client, message):
                         [
                          [
                           InlineKeyboardButton('🔰 ᴍᴀɪɴ ɢʀᴏᴜᴘ 🔰', url=CHNL_LNK),
-                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ⚜️', url="https://t.me/kannadahdall")
+                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ⚜️', url="https://telegram.me/kannadahdall")
                        ],[
-                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://t.me/kannadahdall")
+                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/kannadahdall")
                          ]
                         ]
                     )
@@ -176,9 +176,9 @@ async def start(client, message):
                         [
                          [
                           InlineKeyboardButton('🔰ᴍᴀɪɴ ɢʀᴏᴜᴘ', url=CHNL_LNK),
-                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://t.me/kannadahdall")
+                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://telegram.me/kannadahdall")
                        ],[
-                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://t.me/kannadahdall")
+                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/kannadahdall")
                          ]
                         ]
                     )
@@ -347,9 +347,9 @@ async def start(client, message):
                     [
                      [
                           InlineKeyboardButton('🔰ᴍᴀɪɴ ɢʀᴏᴜᴘ', url=CHNL_LNK),
-                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://t.me/kannadahdall")
+                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://telegram.me/kannadahdall")
                        ],[
-                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://t.me/kannadahdall")
+                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/kannadahdall")
                          ]
                     ]
                 )
@@ -409,9 +409,9 @@ async def start(client, message):
                     [
                      [
                           InlineKeyboardButton('🔰ᴍᴀɪɴ ɢʀᴏᴜᴘ', url=CHNL_LNK),
-                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://t.me/kannadahdall")
+                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://telegram.me/kannadahdall")
                        ],[
-                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://t.me/kannadahdall")
+                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/kannadahdall")
                          ]
                     ]
                 )
@@ -466,9 +466,9 @@ async def start(client, message):
             [
              [
                           InlineKeyboardButton('🔰ᴍᴀɪɴ ɢʀᴏᴜᴘ', url=CHNL_LNK),
-                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://t.me/kannadahdall")
+                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url="https://telegram.me/kannadahdall")
                        ],[
-                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://t.me/kannadahdall")
+                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/kannadahdall")
                          ]
             ]
         )
