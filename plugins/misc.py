@@ -1,12 +1,17 @@
+import hashlib
+import requests
 import os
+import base64
+import asyncio
 from pyrogram import Client, filters, enums
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from info import IMDB_TEMPLATE
 from utils import extract_user, get_file_id, get_poster, last_online
 import time
 from datetime import datetime
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, ForceReply
 import logging
+from utils import get_shortlink
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
@@ -131,35 +136,63 @@ async def who_is(client, message):
 async def imdb_search(client, message):
     if ' ' in message.text:
         k = await message.reply('Searching ImDB')
-        r, title = message.text.split(None, 1)
+        #r, title = message.text.split(None, 1)
+        r, title, *download_link = message.text.split(None, 2)
         movies = await get_poster(title, bulk=True)
         if not movies:
             return await message.reply("No results Found")
+
+        for movie in movies:
+            link = download_link[0] if download_link else None
+            short_link = await get_shortlink(link) if link else None
+            
+        
         btn = [
             [
                 InlineKeyboardButton(
                     text=f"{movie.get('title')} - {movie.get('year')}",
-                    callback_data=f"imdb#{movie.movieID}",
+                    callback_data=f"search#{movie.movieID}{'#' + short_link if download_link else ''}",
+
                 )
             ]
             for movie in movies
         ]
+        
         await k.edit('Here is what i found on IMDb', reply_markup=InlineKeyboardMarkup(btn))
     else:
         await message.reply('Give me a movie / series Name')
 
-@Client.on_callback_query(filters.regex('^imdb'))
+
+
+
+
+@Client.on_callback_query(filters.regex('^search'))
 async def imdb_callback(bot: Client, quer_y: CallbackQuery):
-    i, movie = quer_y.data.split('#')
+    
+    parts = quer_y.data.split('#')
+    movie = parts[1]
+    short_link = parts[2] if len(parts) > 2 else None
+ 
     imdb = await get_poster(query=movie, id=True)
+    
+    
+
+    # Rest of your code...
+
     btn = [
-            [
-                InlineKeyboardButton(
-                    text=f"{imdb.get('title')}",
-                    url=imdb['url'],
-                )
-            ]
+        [
+            InlineKeyboardButton(
+                text='📥 Download' if short_link else f"{imdb.get('title')}",
+                url=short_link if short_link else imdb["url"],
+            )
         ]
+    ]
+    btn.append([
+        InlineKeyboardButton(
+            text="Post to Channel",
+            callback_data=f"imdb_post#{quer_y.message.id}",
+        )
+    ])
     message = quer_y.message.reply_to_message or quer_y.message
     if imdb:
         caption = IMDB_TEMPLATE.format(
@@ -193,6 +226,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
             url = imdb['url'],
             **locals()
         )
+        
     else:
         caption = "No Results"
     if imdb.get('poster'):
@@ -204,11 +238,26 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
             await quer_y.message.reply_photo(photo=poster, caption=caption, reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
-            await quer_y.message.reply(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
+            await quer_y.message.reply(caption, reply_markup=InlineKeyboardMarkup(btn))
         await quer_y.message.delete()
     else:
-        await quer_y.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
+        await quer_y.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn))
     await quer_y.answer()
+@Client.on_callback_query(filters.regex('^imdb_post'))
+async def imdb_post_callback(bot: Client, query: CallbackQuery):
+    chat_id = -1001421748926  # Replace with your channel ID
+    
+    try:
+        new_markup = query.message.reply_markup
+        new_markup.inline_keyboard.pop()  # Remove the last row containing the "Post to Channel" button
+        download_button = InlineKeyboardButton(text='How to Download', url="https://t.me/filmztube_openlink/27")
+        new_markup.inline_keyboard.append([download_button])
+        sti_id = "CAACAgUAAxkBAAEJtERks0gX078KMdOlHbR72bMDnD2FdQACDgADQ3PJEgsK7SMGumuoLwQ"
         
+        await query.message.edit_reply_markup(reply_markup=new_markup)  # Remove inline keyboard
+        message = await query.message.copy(chat_id)
+        await bot.send_sticker(chat_id=chat_id, sticker=sti_id)
 
-        
+        await query.answer("Message copied to channel!")
+    except Exception as e:
+        await query.answer(f"Failed to copy message to channel: {str(e)}", show_alert=True)
