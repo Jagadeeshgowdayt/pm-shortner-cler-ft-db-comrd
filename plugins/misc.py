@@ -245,7 +245,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     await quer_y.answer()
 @Client.on_callback_query(filters.regex('^imdb_post'))
 async def imdb_post_callback(bot: Client, query: CallbackQuery):
-    chat_id = -1001421748926  # Replace with your channel ID
+    chat_id = --1001917965486  # Replace with your channel ID
     
     try:
         new_markup = query.message.reply_markup
