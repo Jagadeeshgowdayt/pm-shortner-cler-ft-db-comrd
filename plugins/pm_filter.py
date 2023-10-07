@@ -152,7 +152,7 @@ async def next_page(bot, query):
 ])
         btn.insert(0, 
                  [
-                InlineKeyboardButton(f'how to open', url="https://telegram.me/kannadahdall/44")])
+                InlineKeyboardButton(f'how to open', url="https://telegram.me/PS_MOVIES0/44")])
             
     else:
         btn = []
@@ -399,20 +399,20 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         if settings['auto_delete']:
             btn.insert(0, 
                  [
-                InlineKeyboardButton(f'how to open', url="https://telegram.me/kannadahdall/44")])
+                InlineKeyboardButton(f'how to open', url="https://telegram.me/PS_MOVIES0/44")])
             
 
         else:
             btn.insert(0, 
                  [
-                InlineKeyboardButton(f'how to open', url="https://telegram.me/kannadahdall/44")])
+                InlineKeyboardButton(f'how to open', url="https://telegram.me/PS_MOVIES0/44")])
             
                 
     except KeyError:
         await save_group_settings(query.message.chat.id, 'auto_delete', True)
         btn.insert(0, 
                  [
-                InlineKeyboardButton(f'how to open', url="https://telegram.me/kannadahdall/44")])
+                InlineKeyboardButton(f'how to open', url="https://telegram.me/PS_MOVIES0/44")])
         
 
     # btn.insert(0, [
@@ -910,9 +910,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             [
                              [
                               InlineKeyboardButton('🔰 ᴍᴀɪɴ ɢʀᴏᴜᴘ 🔰', url=CHNL_LNK),
-                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ⚜️', url="https://telegram.me/kannadahdall")
+                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ⚜️', url="https://telegram.me/PS_MOVIES0")
                        ],[
-                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/kannadahdall")
+                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/PS_MOVIES0")
         ]]
                         )
                     )
@@ -1002,9 +1002,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 [
                  [
                  InlineKeyboardButton('🔰 ᴍᴀɪɴ ɢʀᴏᴜᴘ 🔰', url=CHNL_LNK),
-                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ⚜️', url="https://telegram.me/kannadahdall")
+                          InlineKeyboardButton('⚜️ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ⚜️', url="https://telegram.me/PS_MOVIES0")
                        ],[
-                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/kannadahdall")
+                          InlineKeyboardButton("🔱ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ ɢʀᴏᴜᴘ🔱", url="https://telegram.me/PS_MOVIES0")
         ]]
             )
         )
@@ -1266,7 +1266,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  InlineKeyboardButton('Jᴏɪɴ Cʜᴀɴɴᴇʟ', url=link.invite_link),
                  InlineKeyboardButton("Vɪᴇᴡ Sᴛᴀᴛᴜs", url=f"{query.message.link}")
                ],[
-                 InlineKeyboardButton("Rᴇᴏ̨ᴜᴇsᴛ Gʀᴏᴜᴘ Lɪɴᴋ", url="https://telegram.me/kannadahdall")
+                 InlineKeyboardButton("Rᴇᴏ̨ᴜᴇsᴛ Gʀᴏᴜᴘ Lɪɴᴋ", url="https://telegram.me/PS_MOVIES0")
                ]]
         if query.from_user.id in ADMINS:
             user = await client.get_users(from_user)
@@ -1291,7 +1291,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  InlineKeyboardButton('Jᴏɪɴ Cʜᴀɴɴᴇʟ', url=link.invite_link),
                  InlineKeyboardButton("Vɪᴇᴡ Sᴛᴀᴛᴜs", url=f"{query.message.link}")
                ],[
-                 InlineKeyboardButton("Rᴇᴏ̨ᴜᴇsᴛ Gʀᴏᴜᴘ Lɪɴᴋ", url="https://telegram.me/kannadahdall")
+                 InlineKeyboardButton("Rᴇᴏ̨ᴜᴇsᴛ Gʀᴏᴜᴘ Lɪɴᴋ", url="https://telegram.me/PS_MOVIES0")
                ]]
         if query.from_user.id in ADMINS:
             user = await client.get_users(from_user)
@@ -1314,7 +1314,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  InlineKeyboardButton('Jᴏɪɴ Cʜᴀɴɴᴇʟ', url=link.invite_link),
                  InlineKeyboardButton("Vɪᴇᴡ Sᴛᴀᴛᴜs", url=f"{query.message.link}")
                ],[
-                 InlineKeyboardButton("Rᴇᴏ̨ᴜᴇsᴛ Gʀᴏᴜᴘ Lɪɴᴋ", url="https://telegram.me/kannadahdall")
+                 InlineKeyboardButton("Rᴇᴏ̨ᴜᴇsᴛ Gʀᴏᴜᴘ Lɪɴᴋ", url="https://telegram.me/PS_MOVIES0")
                ]]
         if query.from_user.id in ADMINS:
             user = await client.get_users(from_user)
@@ -1343,7 +1343,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                  InlineKeyboardButton('Jᴏɪɴ Cʜᴀɴɴᴇʟ', url=link.invite_link),
                  InlineKeyboardButton("Vɪᴇᴡ Sᴛᴀᴛᴜs", url=f"{query.message.link}")
                ],[
-                 InlineKeyboardButton("Rᴇᴏ̨ᴜᴇsᴛ Gʀᴏᴜᴘ Lɪɴᴋ", url="https://telegram.me/kannadahdall")
+                 InlineKeyboardButton("Rᴇᴏ̨ᴜᴇsᴛ Gʀᴏᴜᴘ Lɪɴᴋ", url="https://telegram.me/PS_MOVIES0")
                ]]
         if query.from_user.id in ADMINS:
             user = await client.get_users(from_user)
@@ -1905,7 +1905,7 @@ async def auto_filter(client, msg, spoll=False):
     #         for file in files
     #     ]
         btn.insert(0, [
-    InlineKeyboardButton(f'how to open', url="https://telegram.me/kannadahdall/44")
+    InlineKeyboardButton(f'how to open', url="https://telegram.me/PS_MOVIES0/44")
 ])
 
         
