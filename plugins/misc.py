@@ -143,8 +143,8 @@ async def imdb_search(client, message):
             return await message.reply("No results Found")
 
         for movie in movies:
-            short_link = await get_shortlink(download_link[0] or None)
-
+            link = download_link[0] if download_link else None
+            short_link = await get_shortlink(link) if link else None
             
         
         btn = [
@@ -245,12 +245,12 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     await quer_y.answer()
 @Client.on_callback_query(filters.regex('^imdb_post'))
 async def imdb_post_callback(bot: Client, query: CallbackQuery):
-    chat_id = -1001421748926  # Replace with your channel ID
+    chat_id = -1001917965486  # Replace with your channel ID
     
     try:
         new_markup = query.message.reply_markup
         new_markup.inline_keyboard.pop()  # Remove the last row containing the "Post to Channel" button
-        download_button = InlineKeyboardButton(text='How to Download', url="https://telegram.me/filmznk/27")
+        download_button = InlineKeyboardButton(text='How to Download', url="https://t.me/PS_MOVIES0/54")
         new_markup.inline_keyboard.append([download_button])
         sti_id = "CAACAgUAAxkBAAEJtERks0gX078KMdOlHbR72bMDnD2FdQACDgADQ3PJEgsK7SMGumuoLwQ"
         
